@@ -1,4 +1,4 @@
-import { HashRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Finish from './pages/Finish';
 import StartPage from './pages/StartPage';
@@ -9,13 +9,13 @@ import { Layout } from './components/Layout';
 function App() {
   return (
     <Layout>
-      <HashRouter>
+      <BrowserRouter>
         <Routes>
-          <Route path="/finish" element={<Finish />} />
-          <Route path="/question/:id" element={<Question />} />
-          <Route path="/" element={<StartPage />} />
+          <Route path="/quiz-app/finish" element={<Finish />} />
+          <Route path="/quiz-app/question/:id" element={<Question />} />
+          <Route path="/quiz-app/" element={<StartPage />} />
         </Routes>
-      </HashRouter>
+      </BrowserRouter>
     </Layout>
   );
 }

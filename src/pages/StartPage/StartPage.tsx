@@ -57,7 +57,7 @@ const StartPage = () => {
   const onStartClick = () => {
     fetchQuiz().then((questions) => {
       const firstQuestionId = questions && questions[0].id;
-      navigate(`/question/${firstQuestionId}`);
+      navigate(`/quiz-app/question/${firstQuestionId}`);
     });
   };
 

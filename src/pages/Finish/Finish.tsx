@@ -19,7 +19,7 @@ const Finish = () => {
 
   const startNew = () => {
     dispatch({ type: actionTypes.SET_QUESTIONS, payload: [] });
-    navigate('/');
+    navigate('/quiz-app/');
   };
 
   return (

@@ -9,9 +9,9 @@ export const uid = function () {
   );
 };
 
-export const ERROR_ROUTE = '/error';
-export const FINISH_ROUTE = '/finish';
-export const QUESTION_ROUTE = '/question/';
+export const ERROR_ROUTE = '/quiz-app/error';
+export const FINISH_ROUTE = '/quiz-app/finish';
+export const QUESTION_ROUTE = '/quiz-app/question/';
 
 export const findAndAnswerQuestion = (
   id: string,
