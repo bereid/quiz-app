@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { getQuizQuestions } from '../../api/getQuiz.api';
 import { useDispatch } from 'react-redux';
 
+import { QuestionType } from '../../types';
 import * as actionTypes from '../../store/actionTypes';
 
 import Button from 'react-bootstrap/Button';
@@ -33,10 +34,16 @@ const StartPage = () => {
       });
 
       if (quizResponse) {
-        const questions = quizResponse.data.results.map((q) => ({
-          ...q,
-          id: uid(),
-        }));
+        const uniqueQuestionTexts: string[] = [];
+        let questions: QuestionType[] = [];
+        quizResponse.data.results.forEach((q) => {
+          if (!uniqueQuestionTexts.includes(q.question)) {
+            questions.push({
+              ...q,
+              id: uid(),
+            });
+          }
+        });
         dispatch({ type: actionTypes.SET_QUESTIONS, payload: questions });
         return questions;
       }
