@@ -41,7 +41,12 @@ export const calculateScore = (questions: QuestionType[]) => {
   return `${correct}/${all}`;
 };
 
-export const questionOrder = (question: QuestionType, questions: QuestionType[]) => {
-  const index = questions.findIndex(q => q.id.toString() === question.id.toString());
-  return `${index + 1}/${questions.length}`
-} 
+export const questionOrder = (
+  question: QuestionType,
+  questions: QuestionType[]
+) => {
+  const index = questions.findIndex(
+    (q) => q.id.toString() === question.id.toString()
+  );
+  return `${index + 1}/${questions.length}`;
+};

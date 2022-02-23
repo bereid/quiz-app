@@ -9,7 +9,11 @@ import Button from 'react-bootstrap/Button';
 import { AnswerContainer, CardContainer } from '../../components/Containers';
 import { Title, QuestionText } from '../../components/Texts';
 
-import { findNextRoute, findAndAnswerQuestion, questionOrder } from '../../helpers';
+import {
+  findNextRoute,
+  findAndAnswerQuestion,
+  questionOrder,
+} from '../../helpers';
 
 const Question = () => {
   const { id } = useParams<Record<string, any>>();
