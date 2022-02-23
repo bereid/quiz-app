@@ -1,45 +1,22 @@
-import { useEffect, useState } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import { getQuizQuestions } from './api/getQuiz.api';
-import { Question } from './types';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+import Finish from './pages/Finish';
+import StartPage from './pages/StartPage';
+import Question from './pages/Question';
+
+import { Layout } from './components/Layout';
 
 function App() {
-  const [questions, setQuestions] = useState<Question[]>([]);
-
-  useEffect(() => {
-    (async () => {
-      try {
-        const quizResponse = await getQuizQuestions({ amount: 10, difficulty: 'hard', type: 'boolean' });
-
-        if (quizResponse) {
-          setQuestions(quizResponse.data.results);
-        }
-      } catch (e) {
-        console.log(e);
-      }
-    })()
-  }, []);
-
-  console.log(questions)
-  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Layout>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/finish" element={<Finish />} />
+          <Route path="/question/:id" element={<Question />} />
+          <Route path="/" element={<StartPage />} />
+        </Routes>
+      </BrowserRouter>
+    </Layout>
   );
 }
 
